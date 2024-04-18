@@ -32,7 +32,7 @@
         $html = '
         <button class="bouton__ouvrir">Ouvrir carrousel</button>
         <div class="carrousel">
-         <a href="" class="carrousel__x">X</a>
+         <b href="" class="carrousel__x">X</b>
          <figure class="carrousel__figure"></figure>
          <form action="" class="carrousel__form"></form>
         </div>

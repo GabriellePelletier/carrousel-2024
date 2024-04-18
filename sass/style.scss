@@ -1,5 +1,8 @@
 .carrousel {
-  display: none;
+  transform: scale(0);
+  opacity: 0;
+  transition: opacity 2s, transform 2s;
+  // display: none;
   position: absolute;
   width: 50%;
   height: 50%;
@@ -15,15 +18,26 @@
   align-items: center;
   position: absolute;
   right: 0;
-  background-color: var(--couleur-arriere-accueil);
+  background-color: white;
   width: 30px;
   height: 30px;
   /* padding: 5px; */
   border-radius: 50px;
 }
 
+.carrousel__figure {
+  // position: absolute;
+  // width: ;
+  // height: ;
+}
+
+.carrousel__img {
+}
+
 .carrousel--ouvrir {
-  display: block;
+  transform: scale(1);
+  opacity: 1;
+  // display: block;
   z-index: 1;
 }
 
