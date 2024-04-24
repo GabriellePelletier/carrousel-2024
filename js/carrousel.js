@@ -60,13 +60,18 @@
    */
   function creer_radio_carrousel(index) {
     let carrousel_radio = document.createElement("input");
+    let carrousel__form = document.querySelector("form");
+    console.log("Voici le résultat : " + carrousel__form);
     // class
     carrousel_radio.classList.add("carousel");
     // index
-    // carrousel_radio.dataset.index = index;
+    carrousel_radio.dataset.index = index;
     // type
+    carrousel_radio.setAttribute("type", "radio");
     // name
+    carrousel_radio.setAttribute("name", "carrousel__radio");
     // ajouter dans carrousel__form
+    carrousel__form.appendChild(carrousel_radio);
     // ajouter un écouteur qui permettra de changer l'opacité de l'image "index"
     carrousel__img.children[index].style.opacity = 1;
   }
