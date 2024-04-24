@@ -1,6 +1,6 @@
 (function () {
   // Toutes les références des classes et des parties html
-  console.log("Vive Javascript!");
+  // console.log("Vive Javascript!");
   let carrousel = document.querySelector(".carrousel");
   console.log("conteneur carrousel = " + carrousel.tagName);
 
@@ -31,16 +31,50 @@
 
   // Création du carrousel
   // Récupère seulement la première image de la galerie
-  let galerie__img = galerie.querySelector("img");
+  let galerie__img = galerie.querySelectorAll("img");
   console.log(galerie__img);
+  let index = 0;
   for (const elm of galerie__img) {
-    console.log(elm.src);
+    // console.log(elm.src);
+    // Création dynamique d'une image du carrousel
+    creer_image_carrousel(index, elm);
+    creer_radio_carrousel(index);
+    index = index + 1;
   }
 
-  // console.log("Première image dans la galerie : " + galerie__img.src);
+  /**
+   * Créer l'image du carrousel dans la galerie
+   * @param {*} index le numéro de l'image
+   */
+  function creer_image_carrousel(index, elm) {
+    let carrousel__img = document.createElement("img");
+    carrousel__img.src = elm.src;
+    carrousel__img.classList.add("carrousel__img");
+    carrousel__img.dataset.index = index;
+    carrousel__figure.appendChild(carrousel__img);
+  }
 
-  // carrousel__img.src = galerie__img.src;
-  // console.log("Première image du carrousel: " + galerie__img.src);
+  /**
+   * Création d'un radio-bouton du carrousel
+   * @param {*} index le numéro de l'image
+   */
+  function creer_radio_carrousel(index) {
+    let carrousel_radio = document.createElement("input");
+    // class
+    carrousel_radio.classList.add("carousel");
+    // index
+    // carrousel_radio.dataset.index = index;
+    // type
+    // name
+    // ajouter dans carrousel__form
+    // ajouter un écouteur qui permettra de changer l'opacité de l'image "index"
+    carrousel__img.children[index].style.opacity = 1;
+  }
+
+  console.log("Première image dans la galerie : " + galerie__img.src);
+
+  carrousel__img.src = galerie__img.src;
+  console.log("Première image du carrousel: " + galerie__img.src);
 
   // carrousel__figure.appendChild(carrousel__img);
   // console.log(carrousel__figure);

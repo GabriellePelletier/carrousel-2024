@@ -1,14 +1,33 @@
 .carrousel {
   transform: scale(0);
   opacity: 0;
+  border-radius: 12px;
   transition: opacity 2s, transform 2s;
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  background-color: rgba(0, 0, 0, 0.4);
-  top: 25%;
-  left: 25%;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
   z-index: 1;
+  overflow: hidden;
+}
+@media screen and (min-width: 500px) {
+  .carrousel {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+  }
+}
+
+.carrousel img {
+  border-radius: 0px;
+}
+
+.carrousel img:hover {
+  border-radius: 0;
+  filter: contrast(1.2) saturate(0.8);
 }
 
 .carrousel__x {
@@ -22,12 +41,32 @@
   height: 30px;
   /* padding: 5px; */
   border-radius: 50px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.carrousel__figure {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carrousel__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 1;
+  overflow: hidden;
 }
 
 .carrousel--ouvrir {
   transform: scale(1);
   opacity: 1;
   z-index: 1;
+  overflow: hidden;
 }
 
 .bouton__ouvrir {
