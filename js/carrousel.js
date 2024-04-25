@@ -2,16 +2,16 @@
   // Toutes les références des classes et des parties html
   // console.log("Vive Javascript!");
   let carrousel = document.querySelector(".carrousel");
-  console.log("conteneur carrousel = " + carrousel.tagName);
+  // console.log("conteneur carrousel = " + carrousel.tagName);
 
   let bouton = document.querySelector(".bouton__ouvrir");
-  console.log("bouton carrousel = " + bouton.tagName);
+  // console.log("bouton carrousel = " + bouton.tagName);
 
   let carrousel__x = document.querySelector(".carrousel__x");
-  console.log("carrousel__x = " + carrousel__x.tagName);
+  // console.log("carrousel__x = " + carrousel__x.tagName);
 
   let galerie = document.querySelector(".galerie");
-  console.log("galerie" + galerie.tagName);
+  // console.log("galerie" + galerie.tagName);
 
   // Écouteur pour ouvrir la boite modale
   bouton.addEventListener("mousedown", function () {
@@ -32,7 +32,7 @@
   // Création du carrousel
   // Récupère seulement la première image de la galerie
   let galerie__img = galerie.querySelectorAll("img");
-  console.log("La galerie des images = " + galerie__img);
+  // console.log("La galerie des images = " + galerie__img);
   let index = 0;
   for (const elm of galerie__img) {
     // console.log(elm.src);
@@ -61,7 +61,7 @@
   function creer_radio_carrousel(index) {
     let carrousel_radio = document.createElement("input");
     let carrousel__form = document.querySelector(".carrousel__form");
-    console.log("Voici le résultat : " + carrousel__form);
+    // console.log("Voici le résultat : " + carrousel__form);
     // class
     carrousel_radio.classList.add("carousel");
     // index
@@ -73,21 +73,27 @@
     // ajouter dans carrousel__form
     carrousel__form.appendChild(carrousel_radio);
 
-    console.log("Résultat console.log append child = " + carrousel__form);
+    // console.log("Résultat console.log append child = " + carrousel__form);
     // ajouter un écouteur qui permettra de changer l'opacité de l'image "index"
 
+    // J'ai eu l'aide de 'Codedamn.com' pour trouver cette solution
     carrousel_radio.addEventListener("click", function () {
       // Change the image based on the radio button index
       let index = this.dataset.index;
       let carrousel__img = document.querySelector(
         `.carrousel__figure img[data-index='${index}']`
       );
-      carrousel__img.style.opacity = 1;
-      console.log(carrousel__img);
+      carrousel__img.classList.add("carrousel_voir");
+      let otherImages = document.querySelectorAll(
+        ".carrousel__img:not([data-index='" + index + "'])"
+      );
+      for (let i = 0; i < otherImages.length; i++) {
+        otherImages[i].classList.remove("carrousel_voir");
+      }
     });
   }
 
-  console.log("Première image dans la galerie : " + galerie__img[0].src);
+  // console.log("Première image dans la galerie : " + galerie__img[0].src);
 
   // carrousel__img.src = galerie__img.src;
   // console.log("Première image du carrousel: " + carrousel_radio.src);

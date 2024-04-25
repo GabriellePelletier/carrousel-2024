@@ -1,5 +1,6 @@
 .carrousel {
   transform: scale(0);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   opacity: 0;
   border-radius: 12px;
   transition: opacity 2s, transform 2s;
@@ -64,11 +65,23 @@
   overflow: hidden;
 }
 
+/* La première image du carrousel est toujours affiché */
+.carrousel__figure img:first-child {
+  opacity: 1;
+}
+
+.carrousel_voir {
+  opacity: 1;
+}
+
 .carrousel__form {
   position: absolute;
   z-index: 200;
   bottom: 5%;
-  left: 50%;
+  left: 45%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 1% 2%;
 }
 
 .carrousel--ouvrir {
