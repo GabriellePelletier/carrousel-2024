@@ -42,6 +42,41 @@
     index = index + 1;
   }
 
+  // Add arrow buttons
+  let prevArrow = document.createElement("button");
+  prevArrow.classList.add("carrousel__arrow", "carrousel__arrow--prev");
+  prevArrow.innerHTML = "&lt;";
+  carrousel.appendChild(prevArrow);
+
+  let nextArrow = document.createElement("button");
+  nextArrow.classList.add("carrousel__arrow", "carrousel__arrow--next");
+  nextArrow.innerHTML = "&gt;";
+  carrousel.appendChild(nextArrow);
+
+  // Add event listeners to arrow buttons
+  prevArrow.addEventListener("click", function () {
+    index = (index - 1 + galerie__img.length) % galerie__img.length;
+    update_carrousel();
+  });
+
+  nextArrow.addEventListener("click", function () {
+    index = (index + 1) % galerie__img.length;
+    update_carrousel();
+  });
+
+  function update_carrousel() {
+    let carrousel__img = document.querySelector(
+      `.carrousel__figure img[data-index='${index}']`
+    );
+    carrousel__img.classList.add("carrousel_voir");
+    let otherImages = document.querySelectorAll(
+      ".carrousel__img:not([data-index='" + index + "'])"
+    );
+    for (let i = 0; i < otherImages.length; i++) {
+      otherImages[i].classList.remove("carrousel_voir");
+    }
+  }
+
   /**
    * Créer l'image du carrousel dans la galerie
    * @param {*} index le numéro de l'image

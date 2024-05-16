@@ -37,6 +37,8 @@
         <button class="bouton__ouvrir">Ouvrir carrousel</button>
         <div class="carrousel">
          <b href="" class="carrousel__x">X</b>
+         <button class="carrousel__arrow carrousel__arrow--prev">←</button>
+         <button class="carrousel__arrow carrousel__arrow--next">→</button>
          <figure class="carrousel__figure"></figure>
          <form action="" class="carrousel__form"></form>
         </div>

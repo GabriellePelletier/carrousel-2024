@@ -92,4 +92,21 @@
 
 .bouton__ouvrir {
   width: 200px;
-} /*# sourceMappingURL=style.css.map */
+} 
+.carrousel__arrow {
+  padding: 10px 15px;
+  border-radius: 50px;
+  background-color: white;
+  border: none;
+  color: black;
+  position: absolute;
+  top: 50%;
+}
+
+.carrousel__arrow--prev {
+  left: 2%;
+}
+
+.carrousel__arrow--next {
+  right: 2%;
+}/*# sourceMappingURL=style.css.map */
