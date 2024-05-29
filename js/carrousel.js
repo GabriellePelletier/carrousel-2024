@@ -64,16 +64,29 @@
     update_carrousel();
   });
 
-  function update_carrousel() {
+  // Essai de onclick
+  galerie.addEventListener("click", (event) => {
+    let index = Array.from(galerie.children).indexOf(event.target);
+    openCarrousel(index);
+  });
+
+  function openCarrousel(index) {
+    carrousel.classList.add("carrousel--ouvrir");
+    update_carrousel(index);
+  }
+
+  function update_carrousel(index) {
     let carrousel__img = document.querySelector(
       `.carrousel__figure img[data-index='${index}']`
     );
-    carrousel__img.classList.add("carrousel_voir");
-    let otherImages = document.querySelectorAll(
-      ".carrousel__img:not([data-index='" + index + "'])"
-    );
-    for (let i = 0; i < otherImages.length; i++) {
-      otherImages[i].classList.remove("carrousel_voir");
+    if (carrousel__img) {
+      carrousel__img.classList.add("carrousel_voir");
+      let otherImages = document.querySelectorAll(
+        ".carrousel__img:not([data-index='" + index + "'])"
+      );
+      for (let i = 0; i < otherImages.length; i++) {
+        otherImages[i].classList.remove("carrousel_voir");
+      }
     }
   }
 
