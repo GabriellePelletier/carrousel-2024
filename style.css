@@ -1,9 +1,116 @@
+@charset "UTF-8";
 .carrousel {
+  transform: scale(0);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  border-radius: 12px;
+  transition: opacity 2s, transform 2s;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+@media screen and (min-width: 500px) {
+  .carrousel {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+  }
+}
+
+.carrousel img {
+  border-radius: 0px;
+}
+
+.carrousel img:hover {
+  border-radius: 0;
+  filter: contrast(1.2) saturate(0.8);
+}
+
+.carrousel__x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  width: 300px;
-  height: 300px;
+  right: 0;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  /* padding: 5px; */
+  border-radius: 50px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.carrousel__figure {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carrousel__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* La première image du carrousel est toujours affiché */
+.carrousel__figure img:first-child {
+  opacity: 1;
+}
+
+.carrousel_voir {
+  opacity: 1;
+}
+
+.carrousel__form {
+  position: absolute;
+  z-index: 200;
+  bottom: 5%;
+  left: 45%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 1% 2%;
+}
+
+.carrousel--ouvrir {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .bouton__ouvrir {
   width: 200px;
+} 
+.carrousel__arrow {
+  padding: 10px 15px;
+  border-radius: 50px;
+  background-color: white;
+  border: none;
+  color: black;
+  position: absolute;
+  top: 50%;
+}
+
+.carrousel__arrow:hover {
+  background-color: rgb(212, 212, 212);
+}
+
+.carrousel__arrow--prev {
+  left: 2%;
+}
+
+.carrousel__arrow--next {
+  right: 2%;
 }/*# sourceMappingURL=style.css.map */

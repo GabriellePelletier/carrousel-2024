@@ -25,19 +25,27 @@
                      true);
      }
 
+   //   Il faut que wp_head(); soit ajouté juste avant la balise </head>
+   //   et que wp_footer(); soit ajouté juste avant la balsie </body>
      add_action('wp_enqueue_scripts', 'enqueue_style_script');
 
      function generer_html(){
 
         $html = '
-        <button class="bouton_ouvrir">Ouvrir carrousel</button>
+        <br>
+        <br>
+        <button class="bouton__ouvrir">Ouvrir carrousel</button>
         <div class="carrousel">
-         <a href="" class="carrousel__x">X</a>
+         <b href="" class="carrousel__x">X</b>
+         <button class="carrousel__arrow carrousel__arrow--prev">←</button>
+         <button class="carrousel__arrow carrousel__arrow--next">→</button>
          <figure class="carrousel__figure"></figure>
          <form action="" class="carrousel__form"></form>
         </div>
         ';
         return $html;
      }
-
+   //   [carrousel] juste après la galerie dans votre atricle ou page
+   //   Quand la fonction the_content() rencontrera [carrousel] c'est à ce moment
+   //   que le carrousel sera initialisé.
      add_shortcode('carrousel', 'generer_html');
